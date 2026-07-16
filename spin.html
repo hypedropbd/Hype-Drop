@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spin & Win - Hype-Drop</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+text-align:center;
+}
+
+header{
+background:#111;
+color:#fff;
+padding:18px;
+font-size:30px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+}
+
+#wheel{
+width:320px;
+height:320px;
+border-radius:50%;
+margin:25px auto;
+border:8px solid #222;
+position:relative;
+transition:transform 4s ease-out;
+background:
+conic-gradient(
+#ff4d4d 0deg 36deg,
+#4caf50 36deg 72deg,
+#2196f3 72deg 108deg,
+#ff9800 108deg 144deg,
+#9c27b0 144deg 180deg,
+#00bcd4 180deg 216deg,
+#ffc107 216deg 252deg,
+#795548 252deg 288deg,
+#3f51b5 288deg 324deg,
+#e91e63 324deg 360deg
+);
+}
+
+.pointer{
+width:0;
+height:0;
+border-left:18px solid transparent;
+border-right:18px solid transparent;
+border-top:35px solid #111;
+margin:auto;
+}
+
+button{
+padding:14px 35px;
+font-size:18px;
+border:none;
+border-radius:8px;
+background:#111;
+color:white;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
+
+#result{
+margin-top:25px;
+font-size:26px;
+font-weight:bold;
+color:#111;
+min-height:40px;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+padding:12px 22px;
+background:#111;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
+</style>
+
+</head>
+<body>
+
+<header>🎡 Spin & Win</header>
+
+<div class="container">
+
+<div class="pointer"></div>
+
+<div id="wheel"></div>
+
+<button id="spinBtn" onclick="spinWheel()">SPIN</button>
+
+<div id="result"></div>
+
+<a class="back" href="index.html">🏠 Back Home</a>
+
+</div>
+
+<script>
+
+const prizes=[
+"📱 iPhone 17 Pro Max",
+"📱 Samsung Galaxy S26 Ultra",
+"📱 Xiaomi 17 Pro",
+"📱 Nothing Phone (4) Pro",
+"📱 vivo X300 Pro",
+"💵 $2000",
+"🎧 AirPods Pro",
+"⌚ Galaxy Watch",
+"💻 MacBook Air",
+"🎮 PlayStation 5"
+];
+
+let wheel=document.getElementById("wheel");
+let btn=document.getElementById("spinBtn");
+let result=document.getElementById("result");
+
+let currentRotation=0;
+
+function spinWheel(){
+
+btn.disabled=true;
+result.innerHTML="";
+
+let index=Math.floor(Math.random()*prizes.length);
+
+let angle=(360/prizes.length);
+
+let target=(360*5)+(360-(index*angle)-angle/2);
+
+currentRotation+=target;
+
+wheel.style.transform="rotate("+currentRotation+"deg)";
+
+setTimeout(()=>{
+
+result.innerHTML="🎉 Result:<br><br>"+prizes[index]+"<br><br><small>For entertainment only.</small>";
+
+btn.disabled=false;
+
+},4200);
+
+}
+
+</script>
+
+</body>
+</html>
