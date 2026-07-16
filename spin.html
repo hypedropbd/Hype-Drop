@@ -5,7 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spin & Win - Hype-Drop</title>
 
-<style>
+<style>.spin-btn{
+    margin-top:25px;
+    padding:15px 35px;
+    font-size:22px;
+    font-weight:bold;
+    border:none;
+    border-radius:50px;
+    background:#ff3b30;
+    color:#fff;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+.spin-btn:active{
+    transform:scale(.97);
+}
 body{
 margin:0;
 font-family:Arial,sans-serif;
@@ -103,7 +118,9 @@ border-radius:8px;
 
 <div id="wheel"></div>
 
-<button id="spinBtn" onclick="spinWheel()">SPIN</button>
+<button id="spinBtn" class="spin-btn" onclick="spinWheel()">
+    🎡 SPIN NOW
+</button>
 
 <div id="result"></div>
 
@@ -113,19 +130,21 @@ border-radius:8px;
 
 <script>
 
-const prizes=[
+const prizes = [
 "📱 iPhone 17 Pro Max",
+"❌ Better Luck",
 "📱 Samsung Galaxy S26 Ultra",
+"❌ Better Luck",
 "📱 Xiaomi 17 Pro",
+"❌ Better Luck",
 "📱 Nothing Phone (4) Pro",
+"❌ Better Luck",
 "📱 vivo X300 Pro",
 "💵 $2000",
 "🎧 AirPods Pro",
-"⌚ Galaxy Watch",
-"💻 MacBook Air",
-"🎮 PlayStation 5"
+"⌚ Apple Watch Ultra"
 ];
-
+  
 let wheel=document.getElementById("wheel");
 let btn=document.getElementById("spinBtn");
 let result=document.getElementById("result");
