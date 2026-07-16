@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Today's Fortune</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#f5f5f5;
+text-align:center;
+}
+
+header{
+background:#111;
+color:white;
+padding:18px;
+font-size:30px;
+font-weight:bold;
+}
+
+.card{
+background:white;
+max-width:450px;
+margin:30px auto;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+#fortune{
+margin-top:25px;
+font-size:24px;
+font-weight:bold;
+color:#333;
+line-height:1.6;
+}
+
+button{
+background:#111;
+color:white;
+border:none;
+padding:12px 30px;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+padding:12px 20px;
+background:#111;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>🔮 Today's Fortune</header>
+
+<div class="card">
+
+<h2>Your Fortune</h2>
+
+<p>Press the button to reveal today's fortune.</p>
+
+<button onclick="fortune()">Reveal</button>
+
+<div id="fortune">
+✨ Good luck awaits!
+</div>
+
+<a class="back" href="index.html">
+🏠 Back Home
+</a>
+
+</div>
+
+<script>
+
+const list=[
+
+"🍀 Today is your lucky day!",
+
+"💰 Financial success may come soon.",
+
+"❤️ Someone special is thinking about you.",
+
+"🎉 Great news is on the way.",
+
+"🚀 Today is perfect for new beginnings.",
+
+"🌈 Stay positive and opportunities will appear.",
+
+"⭐ Believe in yourself today.",
+
+"😊 Happiness is closer than you think.",
+
+"🔥 Hard work will pay off soon.",
+
+"🎁 A pleasant surprise is waiting for you."
+
+];
+
+function fortune(){
+
+let msg=list[Math.floor(Math.random()*list.length)];
+
+document.getElementById("fortune").innerHTML=msg;
+
+}
+
+</script>
+
+</body>
+</html>
